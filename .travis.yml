@@ -5,8 +5,8 @@ before_install:
   - npm install hexo-cli -g
 install:
   - npm install
-before_script:
-  - git clone --branch master --single-branch https://github.com/jinasonlin/hp.git public
+# before_script:
+#   - git clone --branch master --single-branch https://github.com/jinasonlin/hp.git public
 script:
   - hexo generate
 # after_success:
@@ -22,7 +22,7 @@ deploy:
   local_dir: public
   github_token: $DEPLOY_TOKEN
   on:
-    branch: test
+    branch: master
 branches:
   only:
     - raw
