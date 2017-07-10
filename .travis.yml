@@ -22,7 +22,7 @@ deploy:
   local_dir: public
   github_token: $DEPLOY_TOKEN
   on:
-    branch: master
+    branch: gh-pages
 branches:
   only:
     - raw
