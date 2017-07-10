@@ -9,13 +9,20 @@ before_script:
   - git clone --branch master --single-branch https://github.com/jinasonlin/hp.git public
 script:
   - hexo generate
-after_success:
-  - cd public
-  - git config user.name "Lin Qun@Travis" 
-  - git config user.email "jinasonlin@gmail.com"
-  - git add .
-  - git commit -m "Travis CI Auto Commit"
-  - git push https://$DEPLOY_TOKEN@github.com/jinasonlin/hp.git master
+# after_success:
+#   - cd public
+#   - git config user.name "Lin Qun@Travis" 
+#   - git config user.email "jinasonlin@gmail.com"
+#   - git add .
+#   - git commit -m "Travis CI Auto Commit"
+#   - git push https://$DEPLOY_TOKEN@github.com/jinasonlin/hp.git master
+deploy:
+  provider: pages
+  skip_cleanup: true
+  local_dir: public
+  github_token: $DEPLOY_TOKEN
+  on:
+    branch: master
 branches:
   only:
     - raw
